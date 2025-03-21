@@ -1,0 +1,33 @@
+﻿@model HotelBookingApp.Models.Camera
+
+@{
+    ViewData["Title"] = "Nuova Camera";
+}
+
+<h2>Aggiungi Camera</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Numero"></label>
+        <input asp-for="Numero" class="form-control" />
+        <span asp-validation-for="Numero" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Tipo"></label>
+        <input asp-for="Tipo" class="form-control" />
+        <span asp-validation-for="Tipo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Prezzo"></label>
+        <input asp-for="Prezzo" class="form-control" />
+        <span asp-validation-for="Prezzo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Disponibilita"></label>
+        <input asp-for="Disponibilita" type="checkbox" class="form-check-input" />
+    </div>
+    <button type="submit" class="btn btn-success">Salva</button>
+    <a asp-action="Index" class="btn btn-secondary">Annulla</a>
+</form>
+
+<partial name="_ValidationScriptsPartial" />

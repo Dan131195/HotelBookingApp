@@ -1,0 +1,26 @@
+﻿@model HotelBookingApp.Models.Camera
+
+@{
+    ViewData["Title"] = "Conferma Eliminazione Camera";
+}
+
+<h2>Elimina Camera</h2>
+
+<h4>Sei sicuro di voler eliminare la camera numero @Model.Numero?</h4>
+
+<dl class="row">
+    <dt class="col-sm-3">Tipo</dt>
+    <dd class="col-sm-9">@Model.Tipo</dd>
+
+    <dt class="col-sm-3">Prezzo</dt>
+    <dd class="col-sm-9">@Model.Prezzo.ToString("C")</dd>
+
+    <dt class="col-sm-3">Disponibile</dt>
+    <dd class="col-sm-9">@Model.Disponibilita</dd>
+</dl>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="CameraId" />
+    <button type="submit" class="btn btn-danger">Elimina</button>
+    <a asp-action="Index" class="btn btn-secondary">Annulla</a>
+</form>

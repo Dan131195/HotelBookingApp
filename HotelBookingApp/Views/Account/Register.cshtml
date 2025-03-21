@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Crea Account";
+}
+<h2>Registrazione Utente</h2>
+<form asp-action="Register" method="post">
+    <input name="email" type="email" class="form-control" placeholder="Email" required />
+    <input name="password" type="password" class="form-control mt-2" placeholder="Password" required />
+    <select name="ruolo" class="form-select mt-2">
+        <option value="User">User</option>
+        <option value="Admin">Admin</option>
+    </select>
+    <button type="submit" class="btn btn-success mt-2">Crea</button>
+</form>

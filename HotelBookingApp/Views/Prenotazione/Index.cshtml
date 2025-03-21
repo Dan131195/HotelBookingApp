@@ -1,0 +1,45 @@
+﻿@model IEnumerable<HotelBookingApp.Models.Prenotazione>
+@{
+    ViewData["Title"] = "Prenotazioni";
+}
+
+<h2>Prenotazioni</h2>
+
+<button class="btn btn-primary" id="btnCreate">Nuova Prenotazione</button>
+
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>Cliente</th>
+            <th>Camera</th>
+            <th>Dal</th>
+            <th>Al</th>
+            <th>Stato</th>
+            <th>Azioni</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Cliente.Nome @p.Cliente.Cognome</td>
+                <td>@p.Camera.Numero</td>
+                <td>@p.DataInizio.ToShortDateString()</td>
+                <td>@p.DataFine.ToShortDateString()</td>
+                <td>@p.Stato</td>
+                <td>
+                    <button class="btn btn-sm btn-warning edit-btn" data-id="@p.PrenotazioneId">Modifica</button>
+                    <button class="btn btn-sm btn-danger delete-btn" data-id="@p.PrenotazioneId">Elimina</button>
+                    <button class="btn btn-sm btn-info details-btn" data-id="@p.PrenotazioneId">Dettagli</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Modali dinamiche -->
+<div id="modalContainer"></div>
+
+@section Scripts {
+    <script src="~/js/prenotazione-edit.js"></script>
+}
