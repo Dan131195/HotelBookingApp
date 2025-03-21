@@ -5,9 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HotelBookingApp.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string,
-        IdentityUserClaim<string>, ApplicationUserRole, IdentityUserLogin<string>,
-        IdentityRoleClaim<string>, IdentityUserToken<string>>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string,IdentityUserClaim<string>,       ApplicationUserRole,IdentityUserLogin<string>,IdentityRoleClaim<string>,IdentityUserToken<string>>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 

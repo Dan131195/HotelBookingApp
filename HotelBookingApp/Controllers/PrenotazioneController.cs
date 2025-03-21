@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-[Authorize]
+
 public class PrenotazioneController : Controller
 {
     private readonly PrenotazioneService _prenotazioneService;
@@ -53,4 +53,5 @@ public class PrenotazioneController : Controller
         return PartialView("_RowPartial", updated);
     }
 
+    // CreateModal & DeleteModal (simili)
 }

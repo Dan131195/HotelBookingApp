@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using HotelBookingApp.Models;
 using HotelBookingApp.Services;
-using System;
 
 namespace HotelBookingApp.Controllers
 {
@@ -24,16 +23,19 @@ namespace HotelBookingApp.Controllers
             return cliente == null ? NotFound() : View(cliente);
         }
 
-        public IActionResult Create() => View();
+        public IActionResult Create()
+        {
+            return View();
+        }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HttpPost("Crea")]
         public IActionResult Create(Cliente cliente)
         {
             if (ModelState.IsValid)
             {
+                cliente.ClienteId = Guid.NewGuid();
                 _clienteService.CreateCliente(cliente);
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(("Index"));
             }
             return View(cliente);
         }
@@ -45,7 +47,6 @@ namespace HotelBookingApp.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Edit(Guid id, Cliente cliente)
         {
             if (id != cliente.ClienteId) return NotFound();
@@ -65,7 +66,6 @@ namespace HotelBookingApp.Controllers
         }
 
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(Guid id)
         {
             _clienteService.DeleteCliente(id);
